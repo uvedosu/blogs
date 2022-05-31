@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Borrar post
+{% endblock %}
+
+{% block content %}
+
+<h3>Delete: {{post.title}}</h3>
+
+<h1>Borrar</h1>
+<div class = "form-group">
+<form method = "POST">
+    {% csrf_token %}
+    <strong><h3>¿Estás seguro?</h3></strong>
+    <button class="btn btn-danger">Borrar</button>
+    <a href = "{% url 'home' %}" class = "btn btn-secondary">Back</a>
+</div> 
+
+
+{% endblock %} 

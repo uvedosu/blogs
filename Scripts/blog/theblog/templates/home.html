@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+      
+<h1 style="color:rgb(30, 94, 103)">Publicaciones</h1>
+<div class="figure">
+  <img src="https://images.theconversation.com/files/412093/original/file-20210720-25-vxfvg6.jpg?ixlib=rb-1.1.0&rect=0%2C0%2C5520%2C1991&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
+       alt="La tierra es un cubo">
+       <p style="color:rgba(0, 0, 0, 0.647)">Conspiraciones</p>
+</div>
+
+<ul>
+{% for post in object_list %}
+    <li><strong><a href = "{% url 'article-detail' post.pk %}">{{ post.title }}</strong></a>
+         - <small><a style="color:rgb(205, 0, 123)">{{ post.author.first_name }} {{ post.author.last_name }}</a></small><br/>
+    {{ post.body }}</li>
+
+{% endfor %}
+</ul>
+<style>
+    body {
+        background-color: rgba(0, 0, 0, 0.142);
+    }
+    </style>
+{% endblock %} 
